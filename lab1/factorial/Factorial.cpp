@@ -8,5 +8,6 @@ int factorial(int value) {
 
   else return n*silnia(n-1);
 
+  //aaaaaaaaaaaaaaaaaaaaaaaa
   return 0;
 }
