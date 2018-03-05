@@ -3,10 +3,10 @@
 //
 #include "Factorial.h"
 
-int factorial(int value) {
+int factorial(int n) {
   if (n == 0 || n==1) return 1;
 
-  else return n*silnia(n-1);
+  else return n*factorial(n-1);
 
   //aaaaaaaaaaaaaaaaaaaaaaaaa
   return 0;
