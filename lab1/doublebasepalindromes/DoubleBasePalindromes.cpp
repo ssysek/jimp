@@ -37,9 +37,9 @@ uint64_t DoubleBasePalindromes(int max_value_exculsive){
     for(int j=i-1;j>=0;j--)
         dec+=std::to_string(tab[j]);
 
-    std::cout<<is_palindrome(_str)<<std::endl;
-    std::cout<<dec<<std::endl;
-    std::cout<<is_palindrome(dec)<<std::endl;
+    //std::cout<<is_palindrome(_str)<<std::endl;
+    //std::cout<<dec<<std::endl;
+    //std::cout<<is_palindrome(dec)<<std::endl;
 
     if(is_palindrome(_str) && is_palindrome(dec))
         return 1;

@@ -8,7 +8,8 @@
 #include "DoubleBasePalindromes.h"
 
 int main(){
-    DoubleBasePalindromes(585);
+    if(DoubleBasePalindromes(585))
+        return 1;
 
     return 0;
 }
