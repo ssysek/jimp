@@ -8,7 +8,7 @@
 #include "DoubleBasePalindromes.h"
 
 int main(){
-    DoubleBasePalindromes(535);
+    DoubleBasePalindromes(585);
 
     return 0;
 }
