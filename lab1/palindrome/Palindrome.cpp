@@ -5,7 +5,7 @@
 #include <string>
 #include "Palindrome.h"
 
-bool is_palindrome(std::string str){
+bool IsPalindrome(std::string str){
     bool czypal= true;
     int dl=str.size()-1;
     int licznik=0;

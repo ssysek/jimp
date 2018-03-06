@@ -15,7 +15,7 @@ int main(){
         std::cout << "Podaj tekst";
         std::string tekst;
         std::cin >> tekst;
-        if(is_palindrome(tekst)==1){
+        if(IsPalindrome(tekst)==1){
             std::cout << "Tak, to palindrom";
         }
         else{

@@ -7,7 +7,7 @@
 #include <cstdint>
 #include "DoubleBasePalindromes.h"
 
-bool is_palindrome(std::string str){
+bool IsPalindrome(std::string str){
     bool czypal= true;
     int dl=str.size()-1;
     int licznik=0;
@@ -41,7 +41,7 @@ uint64_t DoubleBasePalindromes(int max_value_exculsive){
     //std::cout<<dec<<std::endl;
     //std::cout<<is_palindrome(dec)<<std::endl;
 
-    if(is_palindrome(_str) && is_palindrome(dec))
+    if(IsPalindrome(_str) && IsPalindrome(dec))
         return 1;
 
     return 0;
