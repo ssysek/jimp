@@ -29,6 +29,18 @@ string change(string mg)
 
     return changed;
 }
+string change2(string mg){
+    string changed="";
+    char tmp;
+    for (int i=0;i<mg.length();i++)
+    {
+        tmp=(char)(tolower(mg[i]));
+        changed+=tmp;
+
+    }
+
+    return changed;
+}
 
 
 std::string PolybiusCrypt(std::string message){
@@ -45,7 +57,7 @@ std::string PolybiusCrypt(std::string message){
             }
         }
     }
-    return wyn;
+    return change2(wyn);
 
 
 
@@ -63,8 +75,5 @@ std::string PolybiusDecrypt(std::string crypted){
         //cout <<a;
         //cout <<b;
         wyn=wyn+literki[a-1][b-1];
-    }
-    return wyn;
-
-
+    }return change2(wyn);
 }
