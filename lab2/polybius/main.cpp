@@ -14,16 +14,23 @@ using namespace std;
 //ZAMIENIĆ J NA I
 string change(string mg)
 {
-    string changed;
+    string changed="";
     char tmp;
     for (int i=0;i<mg.length();i++)
     {
         tmp=(char)(toupper(mg[i]));
-        if(tmp == 'j')
-            changed+='i';
-        else if(tmp == ' '){}
-        else changed+=tmp;
+        switch(tmp)
+        {
+            case 'J':
+                changed+='I';
+                break;
+            case ' ':
+                break;
+            default:
+                changed+=tmp;
+                break;
+        }
     }
 
-    return 0;
+    return changed;
 }
