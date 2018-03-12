@@ -3,6 +3,7 @@
 //
 #include <iostream>
 #include <string>
+#include <fstream>
 #include "Polybius.h"
 
 using namespace std;
@@ -11,11 +12,25 @@ using namespace std;
 //USUNAĆ SPACJE Z LINIJEK
 //USUNAĆ POLSKIE ZNAKI
 //ZAMIENIĆ J NA I
-int main() {
+string change(string mg)
+{
+    string changed="";
+    char tmp;
+    for (int i=0;i<mg.length();i++)
+    {
+        tmp=(char)(toupper(mg[i]));
+        switch(tmp)
+        {
+            case 'J':
+                changed+='I';
+                break;
+            case ' ':
+                break;
+            default:
+                changed+=tmp;
+                break;
+        }
+    }
 
-    string test="4313244331154411243315";
-
-    cout<< PolybiusDecrypt(test);
-
-    return 0;
+    return changed;
 }
