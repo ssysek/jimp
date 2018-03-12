@@ -13,9 +13,9 @@ using namespace std;
 //ZAMIENIĆ J NA I
 int main() {
 
-    string test="SCISLETAINE";
+    string test="4313244331154411243315";
 
-    cout << PolybiusCrypt(test);
+    cout<< PolybiusDecrypt(test);
 
     return 0;
 }
