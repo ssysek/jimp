@@ -7,9 +7,32 @@
 
 using namespace std;
 
+string change(string mg)
+{
+    string changed="";
+    char tmp;
+    for (int i=0;i<mg.length();i++)
+    {
+        tmp=(char)(toupper(mg[i]));
+        switch(tmp)
+        {
+            case 'J':
+                changed+='I';
+                break;
+            case ' ':
+                break;
+            default:
+                changed+=tmp;
+                break;
+        }
+    }
+
+    return changed;
+}
 
 
 std::string PolybiusCrypt(std::string message){
+    message=change(message);
     string wyn="";
     char literki[5][5]={{'A','B','C','D','E'},{'F','G','H','I','K'},{'L','M','N','O','P'},{'Q','R','S','T','U'},{'V','W','X','Y','Z'}};
     for(char& c : message){
@@ -29,6 +52,7 @@ std::string PolybiusCrypt(std::string message){
 }
 
 std::string PolybiusDecrypt(std::string crypted){
+    crypted=change(crypted);
     string wyn="";
     char literki[5][5]={{'A','B','C','D','E'},{'F','G','H','I','K'},{'L','M','N','O','P'},{'Q','R','S','T','U'},{'V','W','X','Y','Z'}};
     for(int i=0;i<(crypted.size());i=i+2){

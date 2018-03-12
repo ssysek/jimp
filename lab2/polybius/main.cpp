@@ -12,25 +12,8 @@ using namespace std;
 //USUNAĆ SPACJE Z LINIJEK
 //USUNAĆ POLSKIE ZNAKI
 //ZAMIENIĆ J NA I
-string change(string mg)
-{
-    string changed="";
-    char tmp;
-    for (int i=0;i<mg.length();i++)
-    {
-        tmp=(char)(toupper(mg[i]));
-        switch(tmp)
-        {
-            case 'J':
-                changed+='I';
-                break;
-            case ' ':
-                break;
-            default:
-                changed+=tmp;
-                break;
-        }
-    }
 
-    return changed;
+int main() {
+    cout << PolybiusCrypt("SCISLE TAJNE");
+    cout << PolybiusDecrypt("43 13 24 43 31 15 44 11 24 33 15");
 }
