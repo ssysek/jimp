@@ -6,4 +6,13 @@
 #include <sstream>
 #include <regex>
 #include <cmath>
+#include <iostream>
+#include "MinimalTimeDifference.h"
 using namespace std;
+
+int main(){
+
+    cout << MinimalTimeDifference({"23:58" , "00:00"});
+
+    return 0;
+}
