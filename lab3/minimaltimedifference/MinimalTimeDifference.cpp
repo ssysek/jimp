@@ -7,3 +7,7 @@
 #include <sstream>
 #include <regex>
 #include <cmath>
+
+unsigned int ToMinutes(std::string time_HH_MM){
+
+}
