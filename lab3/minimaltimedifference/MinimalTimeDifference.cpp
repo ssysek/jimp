@@ -42,11 +42,17 @@ unsigned int MinimalTimeDifference(std::vector<std::string> times){
     }
 
     sort(minutes.begin(), minutes.end());
+    unsigned int diff;
+
+
 
     for( int k = 0 ; k<minutes.size() - 1; k++){
-        unsigned int diff = minutes[k] - minutes[k+1];
-        if (diff < min)
-            min = diff;
+        diff = minutes[k+1] - minutes[k];
+        if(diff>720){
+            minutes[k+1]=
+        }
+        if (diff < min){
+            min = diff;}
     }
     return min;
 }

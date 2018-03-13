@@ -12,7 +12,7 @@ using namespace std;
 
 int main(){
 
-    cout << MinimalTimeDifference({"23:58" , "00:00"});
+    cout << MinimalTimeDifference({"23:59", "00:00"});
 
     return 0;
 }
