@@ -51,7 +51,8 @@
                 string encodedUrl;
                 for (char c : FirstHash)
                     encodedUrl += c;
-                SetEntryData(url, encodedUrl, codec);
+
+                (*codec)->tinyUrlEntry[encodedUrl] = url;
                 NextHash(&FirstHash);
                 return encodedUrl;
             }
