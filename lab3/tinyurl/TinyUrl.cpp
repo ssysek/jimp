@@ -40,28 +40,30 @@
 
                 }}
 
-            void SetEntryData(string url, string encoded, std::unique_ptr<TinyUrlCodec> *tinyUrlCodec) {
-                (*tinyUrlCodec)->tinyUrlEntry[encoded] = url;
-            }
-            string Encode(const std::string &url, std::unique_ptr<TinyUrlCodec> *codec) {
-                for (auto it = (*codec)->tinyUrlEntry.begin();
-                     it != (*codec)->tinyUrlEntry.end(); ++it) // checks if url already encoded, return hash
-                    if (it->second == url)
-                        return it->first;
-                string encodedUrl;
-                for (char c : FirstHash)
-                    encodedUrl += c;
 
-                (*codec)->tinyUrlEntry[encodedUrl] = url;
+
+            string Encode(const std::string &url, std::unique_ptr<TinyUrlCodec> *codec) {
+                for (auto tmp = (*codec)->UrlStart.begin();
+                     tmp != (*codec)->UrlStart.end(); ++tmp)
+                    if (tmp->second == url){
+                        return tmp->first;}
+                string newUrl;
+
+                for (char c : FirstHash)
+                    newUrl += c;
+
+                (*codec)->UrlStart[newUrl] = url;
                 NextHash(&FirstHash);
-                return encodedUrl;
+                return newUrl;
             }
 
             string Decode(const std::unique_ptr<TinyUrlCodec> &codec, const std::string &hash) {
-                if (codec->tinyUrlEntry.find(hash) != codec->tinyUrlEntry.end())
-                    return codec->tinyUrlEntry[hash];
+                if (codec->UrlStart.find(hash) != codec->UrlStart.end())
+                {
+                    return codec->UrlStart[hash];
+                }
                 else
-                    return "notfound";
+                    return "brak w bazie";
             }
 
         }

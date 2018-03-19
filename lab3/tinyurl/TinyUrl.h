@@ -14,7 +14,7 @@
 
 namespace tinyurl {
     struct TinyUrlCodec {
-        std::map<std::string, std::string> tinyUrlEntry;
+        std::map<std::string, std::string> UrlStart;
     };
 
     std::unique_ptr<TinyUrlCodec> Init();
