@@ -10,7 +10,7 @@
 
         namespace tinyurl
         {
-            std::array<char,6> Hash={'0','0','0','0','0','0'};
+            std::array<char,6> FirstHash={'0','0','0','0','0','0'};
 
             unique_ptr<TinyUrlCodec> Init() {
                 unique_ptr<TinyUrlCodec> uniqueTinyUrlPtr = make_unique<TinyUrlCodec>();
@@ -18,22 +18,6 @@
             }
 
             void NextHash(std::array<char, 6> *state) {
-                /*
-                  char zk;
-                for (int k = 5; k >= 0; k--) {
-                    zk = (*state)[k];
-                    if (zk != 'z') {
-                        int offset = 1;
-                        if (zk == '9')
-                            offset = 8;
-                        else if (zk == 'Z')
-                            offset = 7;
-                        (*state)[k] += offset;
-                        break;
-                    }
-                    else
-                        (*state)[k] = '0';
-                 */
                 bool zwieksznast=false;
                 for(int i=5;i>=0;i--){
 
@@ -55,4 +39,28 @@
                     (*state)[i]=znak;
 
                 }}
+
+            void SetEntryData(string url, string encoded, std::unique_ptr<TinyUrlCodec> *tinyUrlCodec) {
+                (*tinyUrlCodec)->tinyUrlEntry[encoded] = url;
             }
+            string Encode(const std::string &url, std::unique_ptr<TinyUrlCodec> *codec) {
+                for (auto it = (*codec)->tinyUrlEntry.begin();
+                     it != (*codec)->tinyUrlEntry.end(); ++it) // checks if url already encoded, return hash
+                    if (it->second == url)
+                        return it->first;
+                string encodedUrl;
+                for (char c : FirstHash)
+                    encodedUrl += c;
+                SetEntryData(url, encodedUrl, codec);
+                NextHash(&FirstHash);
+                return encodedUrl;
+            }
+
+            string Decode(const std::unique_ptr<TinyUrlCodec> &codec, const std::string &hash) {
+                if (codec->tinyUrlEntry.find(hash) != codec->tinyUrlEntry.end())
+                    return codec->tinyUrlEntry[hash];
+                else
+                    return "notfound";
+            }
+
+        }

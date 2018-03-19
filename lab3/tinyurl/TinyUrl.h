@@ -8,13 +8,13 @@
 #include <utility>
 #include <string>
 #include <array>
+#include <iostream>
 #include <memory>
 #include <map>
-#include <iostream>
 
 namespace tinyurl {
     struct TinyUrlCodec {
-        std::map<std::string, std::string> tinyUrlStart;
+        std::map<std::string, std::string> tinyUrlEntry;
     };
 
     std::unique_ptr<TinyUrlCodec> Init();
