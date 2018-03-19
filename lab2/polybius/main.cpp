@@ -14,6 +14,6 @@ using namespace std;
 //ZAMIENIĆ J NA I
 
 int main() {
-    cout << PolybiusCrypt("SCISLE TAJNE");
-    cout << PolybiusDecrypt("43 13 24 43 31 15 44 11 24 33 15");
+    cout << PolybiusCrypt("a b c d e f g h i j k l m n o p q r s t u v w x y z");
+    //cout << PolybiusDecrypt("43 13 24 43 31 15 44 11 24 33 15");
 }
