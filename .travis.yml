@@ -27,8 +27,8 @@ script:
   - tests/exampletest/example_examplelibrary_tests
   - make lab3_tiny_url_step2_tests
   - tests/lab3test/lab3_tiny_url_step2_tests
-  - make lab4_simple_json_test
-  - tests/lab4test/lab4_simple_json_test
+  - make lab4_simple_json_tests
+  - tests/lab4test/lab4_simple_json_tests
   
 notifications:
   email: false
