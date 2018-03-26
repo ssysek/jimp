@@ -3,25 +3,33 @@
 //
 #include "SimpleTemplateEngine.h"
 
-::nets::View::View(std::string template_str) : template_str(template_str) {}
+using namespace std;
 
-std::string nets::View::GetTemplateStr() const {
+::nets::View::View(string szablon) : template_str(szablon) {}
+
+string nets::View::tenszablon() const {
     return this->template_str;
 }
-std::string nets::View::Render(const std::unordered_map <std::string, std::string> &model) const {
-    std::string template_str = this->GetTemplateStr();
-    std::stringstream new_str;
-    std::regex pattern ("\\{\\{([\\d\\w_]*)\\}\\}");
-    std::smatch result;
-    while (std::regex_search(template_str, result, pattern)) {
-        std::string replacement = "";
-        for (auto map_el : model) {
-            if ( result[1] == map_el.first )
-                replacement = map_el.second;
+string nets::View::Render(const unordered_map <string, string> &model) const {
+
+    stringstream nowystring;
+    smatch wynik;
+    string stringszablon = this->tenszablon();
+    regex wzór ("\\{\\{([\\d\\w_]*)\\}\\}");
+
+    while (regex_search(stringszablon, wynik, wzór)) {
+        string zmiana = "";
+
+        for (auto element : model) {
+            if (wynik[1] == element.first) {
+                zmiana = element.second;
+            }
         }
-        new_str << result.prefix() << replacement;
-        template_str = result.suffix();
-    }
-    new_str << template_str;
-    return new_str.str();
+
+        nowystring << wynik.prefix() << zmiana;
+        stringszablon = wynik.suffix();
+
+
+    nowystring << stringszablon;
+    return nowystring.str();
 }

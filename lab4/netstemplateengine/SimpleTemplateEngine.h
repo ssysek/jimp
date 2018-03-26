@@ -14,10 +14,12 @@
 namespace nets {
     class View {
     public:
-        View (std::string template_str);
-        std::string GetTemplateStr() const;
+
+        View (std::string szablon);
+        std::string tenszablon() const;
         std::string Render(const std::unordered_map <std::string, std::string> &model) const;
     private:
+
         std::string template_str;
     };
 }
