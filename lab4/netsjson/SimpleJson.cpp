@@ -40,9 +40,9 @@ namespace nets{
     }
     std::string JsonValue::ToString() const {
         std::stringstream wynik;
-        if (JVint_ != NULL)
+        if (JVint_ != 0)
             wynik << JVint_;
-        else if (JVdouble_ != NULL)
+        else if (JVdouble_ != 0)
             wynik << JVdouble_;
         else if (!JVstring_.empty())
             wynik << JVstring_;

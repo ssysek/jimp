@@ -1,3 +1,4 @@
+
 //
 // Created by Sysek on 2018-03-24.
 //
@@ -25,8 +26,8 @@ namespace nets {
 
     private:
         bool JVbool_= NULL;
-        int JVint_ = NULL;
-        double JVdouble_ = NULL;
+        int JVint_ = 0;
+        double JVdouble_ = 0;
         std::vector<JsonValue> JVvector_;
         std::string JVstring_ = "";
         std::map<std::string,JsonValue> JVmap_;
