@@ -15,9 +15,9 @@ string nets::View::Render(const unordered_map <string, string> &model) const {
     stringstream nowystring;
     smatch wynik;
     string stringszablon = this->tenszablon();
-    regex wzór ("\\{\\{([\\d\\w_]*)\\}\\}");
+    regex wzor ("\\{\\{([\\d\\w_]*)\\}\\}");
 
-    while (regex_search(stringszablon, wynik, wzór)) {
+    while (regex_search(stringszablon, wynik, wzor)) {
         string zmiana = "";
 
         for (auto element : model) {
