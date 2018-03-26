@@ -28,8 +28,9 @@ string nets::View::Render(const unordered_map <string, string> &model) const {
 
         nowystring << wynik.prefix() << zmiana;
         stringszablon = wynik.suffix();
+    }
 
 
     nowystring << stringszablon;
     return nowystring.str();
-}}
+}
