@@ -28,10 +28,10 @@ int main() {
     cout << "values: " << obj.ValueByName("values")->ToString() << endl;
     cout << "age: " << obj.ValueByName("age")->ToString() << endl;
     //obiekty optional można traktować jak wartości boolean (true wartość obecna, false optional jest pusty)
-    if (obj.ValueByName("xyz")) {
-        cout << "is present" << endl;
-    } else {
-        cout << "is absent" << endl;
-    }
+    //if (obj.ValueByName("xyz")) {
+        //cout << "is present" << endl;
+    //} else {
+        //cout << "is absent" << endl;
+    //}
     return 0;
 }
