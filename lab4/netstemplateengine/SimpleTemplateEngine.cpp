@@ -32,4 +32,4 @@ string nets::View::Render(const unordered_map <string, string> &model) const {
 
     nowystring << stringszablon;
     return nowystring.str();
-}
+}}
