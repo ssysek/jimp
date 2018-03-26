@@ -29,6 +29,10 @@ script:
   - tests/lab3test/lab3_tiny_url_step2_tests
   - make lab4_simple_json_tests
   - tests/lab4test/lab4_simple_json_tests
+  - make lab4_simple_template_engine_tests
+  - tests/lab4test/lab4_simple_template_engine_tests
+  - make lab4_simple_template_engine_injection_tests
+  - tests/lab4test/lab4_simple_template_engine_injection_tests
   
 notifications:
   email: false
