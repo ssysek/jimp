@@ -25,10 +25,14 @@ script:
     cmake -DCMAKE_CXX_COMPILER=$CXX ..
   - make example_examplelibrary_tests
   - tests/exampletest/example_examplelibrary_tests
-  - make lab3_tiny_url_step1_tests
-  - tests/lab3test/lab3_tiny_url_step1_tests
   - make lab3_tiny_url_step2_tests
   - tests/lab3test/lab3_tiny_url_step2_tests
+  - make lab4_simple_json_tests
+  - tests/lab4test/lab4_simple_json_tests
+  - make lab4_simple_template_engine_tests
+  - tests/lab4test/lab4_simple_template_engine_tests
+  - make lab4_simple_template_engine_injection_tests
+  - tests/lab4test/lab4_simple_template_engine_injection_tests
   
 notifications:
   email: false
