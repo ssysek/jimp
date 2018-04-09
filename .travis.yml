@@ -33,6 +33,8 @@ script:
   - tests/lab4test/lab4_simple_template_engine_tests
   - make lab4_simple_template_engine_injection_tests
   - tests/lab4test/lab4_simple_template_engine_injection_tests
+  - make lab5_text_pool_tests
+  - tests/lab5test/lab5_text_pool_tests
   
 notifications:
   email: false
