@@ -12,3 +12,5 @@ class WordCounter {
 
 
 #endif //JIMP_EXERCISES_WORDCOUNTER_H
+
+//a
