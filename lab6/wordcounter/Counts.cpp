@@ -6,22 +6,35 @@
 using namespace datastructures;
 
 Counts & Counts::operator++() {
-    count++;
+
+    licznik++;
     return *this;
+
 }
 
-Counts::Counts(int number) {
-    count = number;
+Counts::Counts(int numer) {
+
+    licznik = numer;
+
 }
 
-bool Counts::operator<(Counts ignas) const {
-    return (count<ignas.count);
+bool Counts::operator==(Counts zlicz) const {
+
+    return (licznik==zlicz.licznik);
+
 }
 
-bool Counts::operator>(Counts ignas) const {
-    return (count>ignas.count);
+bool Counts::operator>(Counts zlicz) const {
+
+    return (licznik>zlicz.licznik);
+
 }
 
-bool Counts::operator==(Counts ignas) const {
-    return (count==ignas.count);
+bool Counts::operator<(Counts zlicz) const {
+
+    return (licznik<zlicz.licznik);
+
 }
+
+
+

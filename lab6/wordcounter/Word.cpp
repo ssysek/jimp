@@ -5,19 +5,27 @@
 #include "Word.h"
 using datastructures::Word;
 
-Word::Word(string str)
-{
-    searched_word = str;
+Word::Word(string str) {
+
+    szukane = str;
+
 }
 
-bool Word::operator<(Word ignas) const {
-    return (searched_word<ignas.searched_word);
+bool Word::operator==(Word zlicz) const {
+
+    return (szukane==zlicz.szukane);
+
 }
 
-bool Word::operator>(Word ignas) const {
-    return (searched_word>ignas.searched_word);
+bool Word::operator>(Word zlicz) const {
+
+    return (szukane>zlicz.szukane);
+
 }
 
-bool Word::operator==(Word ignas) const {
-    return (searched_word==ignas.searched_word);
+bool Word::operator<(Word zlicz) const {
+
+    return (szukane<zlicz.szukane);
+
 }
+

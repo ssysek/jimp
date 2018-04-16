@@ -8,25 +8,24 @@
 namespace datastructures {
 
     class Counts {
+
     public:
+
         friend class WordCounter;
 
         Counts() {};
-
         ~Counts() {};
-
-        Counts(int oo);
-
+        Counts(int i);
         Counts & operator++();
 
-        bool operator<(Counts ignas) const ;
-
-        bool operator>(Counts ignas) const ;
-
-        bool operator==(Counts ignas) const ;
+        bool operator==(Counts zlicz) const ;
+        bool operator>(Counts zlicz) const ;
+        bool operator<(Counts zlicz) const ;
 
     private:
-        int count;
+
+        int licznik;
+
     };
 
 }

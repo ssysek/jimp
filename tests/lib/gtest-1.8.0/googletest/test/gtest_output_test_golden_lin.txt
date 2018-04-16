@@ -696,7 +696,7 @@ Value of: false
   Actual: false
 Expected: true
 [  FAILED  ] FatalFailureTest.NonfatalFailureInSubroutine (? ms)
-[----------] 3 tests from FatalFailureTest (? ms total)
+[----------] 3 tests from FatalFailureTest (? ms suma)
 
 [----------] 1 test from LoggingTest
 [ RUN      ] LoggingTest.InterleavingLoggingAndAssertions
@@ -710,10 +710,10 @@ i == 3
 gtest_output_test_.cc:#: Failure
 Expected: (3) >= (a[i]), actual: 3 vs 6
 [  FAILED  ] LoggingTest.InterleavingLoggingAndAssertions (? ms)
-[----------] 1 test from LoggingTest (? ms total)
+[----------] 1 test from LoggingTest (? ms suma)
 
 [----------] Global test environment tear-down
-[==========] 4 tests from 2 test cases ran. (? ms total)
+[==========] 4 tests from 2 test cases ran. (? ms suma)
 [  PASSED  ] 0 tests.
 [  FAILED  ] 4 tests, listed below:
 [  FAILED  ] FatalFailureTest.FatalFailureInSubroutine
