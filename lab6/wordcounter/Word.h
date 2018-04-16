@@ -5,21 +5,31 @@
 #ifndef JIMP_EXERCISES_WORD_H
 #define JIMP_EXERCISES_WORD_H
 
-#include <string>
+#include "string"
+
+using std::string;
 
 namespace datastructures {
+
+
     class Word {
     public:
-        Word() = default;
+        friend class WordCounter;
 
-        Word(const std::string &str);
+        Word(){};
 
-        const std::string &GetWord() const;
+        Word(string str);
 
+        ~Word() {};
+
+        bool operator<(Word ignas) const ;
+
+        bool operator>(Word ignas) const ;
+
+        bool operator==(Word ignas) const ;
     private:
-        std::string word_;
+        string searched_word;
     };
 
 }
-
 #endif //JIMP_EXERCISES_WORD_H

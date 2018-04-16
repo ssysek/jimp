@@ -5,38 +5,47 @@
 #ifndef JIMP_EXERCISES_WORDCOUNTER_H
 #define JIMP_EXERCISES_WORDCOUNTER_H
 
-#include <vector>
-#include <set>
-#include "Counts.h"
+#include "string"
+#include "iostream"
 #include "Word.h"
+#include "Counts.h"
+#include "list"
+#include "fstream"
+#include "map"
+#include <utility>
+#include <regex>
+#include <initializer_list>
+#include <set>
 
-
+using std::map;
+using std::string;
+using std::set;
+using std::cout;
+using std::endl;
+using std::pair;
+using std::list;
+using std::initializer_list;
 namespace datastructures {
 
 
     class WordCounter {
     public:
-        WordCounter() = default;
+        WordCounter();
+        WordCounter(initializer_list<Word> words);
+        ~WordCounter() {};
 
-        WordCounter(const std::initializer_list<Word> &elements);
-
+        int operator[](string wanted);
         int DistinctWords();
-
         int TotalWords();
-
-        void InsertWord(const std::string word);
-
-        std::set<Word> Words();
-
-        static WordCounter &FromInputStream(std::istream &is);
-
-        friend std::ostream &operator<<(std::ostream &stream, WordCounter &wc);
-
-        int operator[](const std::string &);
+        set<Word> Words();
 
     private:
-        std::vector<std::pair<Word, Counts>> wordVector_;
-    };
-}
+        list<pair<Word, Counts>> mylist;
+        int distinct;
+        int total;
 
-#endif JIMP_EXERCISES_WORDCOUNTER_H
+    };
+
+
+}
+#endif //JIMP_EXERCISES_WORDCOUNTER_H

@@ -3,8 +3,6 @@
 //
 
 #include "Counts.h"
-
-
 using namespace datastructures;
 
 Counts & Counts::operator++() {
@@ -12,22 +10,18 @@ Counts & Counts::operator++() {
     return *this;
 }
 
-
-Counts::Counts(int numer) {
-    count = numer;
+Counts::Counts(int number) {
+    count = number;
 }
 
-
-bool Counts::operator==(Counts zlicz) const {
-    return (count==zlicz.count);
+bool Counts::operator<(Counts ignas) const {
+    return (count<ignas.count);
 }
 
-
-bool Counts::operator>(Counts zlicz) const {
-    return (count>zlicz.count);
+bool Counts::operator>(Counts ignas) const {
+    return (count>ignas.count);
 }
 
-
-bool Counts::operator<(Counts zlicz) const {
-    return (count<zlicz.count);
+bool Counts::operator==(Counts ignas) const {
+    return (count==ignas.count);
 }

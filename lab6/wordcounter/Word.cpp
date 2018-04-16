@@ -3,12 +3,21 @@
 //
 
 #include "Word.h"
+using datastructures::Word;
 
-namespace datastructures {
+Word::Word(string str)
+{
+    searched_word = str;
+}
 
-    Word::Word(const std::string &str = "") {
-        word_ = str;
-    }
+bool Word::operator<(Word ignas) const {
+    return (searched_word<ignas.searched_word);
+}
 
-    const std::string &Word::GetWord() const { return word_; }
+bool Word::operator>(Word ignas) const {
+    return (searched_word>ignas.searched_word);
+}
+
+bool Word::operator==(Word ignas) const {
+    return (searched_word==ignas.searched_word);
 }

@@ -2,92 +2,85 @@
 // Created by Jan on 16.04.2018.
 //
 
-#include <iostream>
 #include "WordCounter.h"
-#include <algorithm>
+using datastructures::WordCounter;
+using datastructures::Word;
 
-namespace datastructures {
-
-    WordCounter::WordCounter(const std::initializer_list<Word> &elements) {
-        for (auto w : elements) {
-            bool found = false;
-            for (auto it = wordVector_.begin(); it != wordVector_.end(); ++it) {
-                if (w == it->first) {
-                    ++it->second;
-                    found = true;
-                    break;
-                }
-            }
-            if (!found) {
-                std::pair<Word, Counts> new_pair = std::make_pair(w, Counts(1));
-                wordVector_.push_back(new_pair);
-            }
-        }
-    }
-
-    int WordCounter::DistinctWords() {
-        return (int)wordVector_.size();
-    }
-
-    int WordCounter::TotalWords() {
-        int result = 0;
-        for (auto &word : wordVector_)
-            result += word.second.GetCount();
-        return result;
-    }
-
-    std::set<Word> WordCounter::Words() {
-        std::set<Word> wordSet;
-
-        for (auto &word: wordVector_)
-            wordSet.insert(word.first);
-
-        return wordSet;
-    }
-
-    WordCounter &WordCounter::FromInputStream(std::istream &is) {
-        static WordCounter wordCounter;
-        std::string word;
-        while (is >> word)
-            wordCounter.InsertWord(word);
-        return wordCounter;
-    }
-
-    void WordCounter::InsertWord(const std::string word) {
-        bool found = false;
-        for (auto it = wordVector_.begin(); it != wordVector_.end(); ++it) {
-            if (word == it->first) {
-                ++it->second;
-                found = true;
+WordCounter::WordCounter(initializer_list<Word> words) {
+    total = 0;
+    distinct = 0;
+    int tmp = 0;
+    bool flag;
+    for (auto word : words)
+    {
+        total++;
+        flag = true;
+        tmp = 0;
+        for(pair<Word, Counts> iter : mylist)
+        {
+            if (iter.first.searched_word == word.searched_word)
+            {
+                ++find(mylist.begin(),mylist.end(),iter)->second;
+                flag = false;
                 break;
             }
+            tmp++;
         }
-        if (!found) {
-            std::pair<Word, Counts> new_pair = std::make_pair(Word(word), Counts(1));
-            wordVector_.push_back(new_pair);
+
+        if (flag)
+        {
+            Counts oo{1};
+            distinct++;
+            mylist.emplace_back(std::make_pair(word,oo));
         }
     }
+}
 
+int WordCounter::DistinctWords() {
+    return distinct;
+}
 
-    std::ostream &operator<<(std::ostream &stream, WordCounter &wc) {
-        stream << "Words: " << wc.DistinctWords() << std::endl;
-        std::vector<std::pair<Word, Counts>> vec = wc.wordVector_;
-        std::sort(vec.begin(), vec.end());
-        for (auto it = vec.begin(); it != vec.end(); ++it) {
-            stream << it->first.GetWord() << ": " << it->second.GetCount() << std::endl;
-        }
+int WordCounter::TotalWords() {
+    return total;
+}
 
-        return stream;
+int WordCounter::operator[](string wanted) {
+    for(auto iter : mylist)
+    {
+        if(iter.first.searched_word == wanted)
+            return iter.second.count;
     }
+    return 0;
+}
 
-    int WordCounter::operator[](const std::string &str) {
-        int result = 0;
-        for (auto &word: wordVector_) {
-            if (word.first.GetWord() == str) {
-                result = word.second.GetCount();
-                break;
+set<Word> WordCounter::Words() {
+
+    list<int> lista;
+    for(auto iter : mylist)
+        lista.emplace_back(iter.second.count);
+    lista.sort();
+
+    map<Word, Counts> mapka;
+    for(auto iter : mylist)
+        mapka.emplace(iter.first, iter.second);
+
+    set<Word> _set;
+    for(int iter : lista)
+    {
+        for(auto em_el : mapka)
+        {
+            if (iter == em_el.second.count)
+            {
+                _set.emplace(em_el.first);
+                em_el.second.count=-1;
             }
         }
-        return result;
     }
+    return _set;
+}
+
+WordCounter::WordCounter() {
+
+    total = 0;
+    distinct = 0;
 }
