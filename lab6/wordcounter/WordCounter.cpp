@@ -103,4 +103,5 @@ WordCounter::WordCounter() {
 
     suma = 0;
     unikat = 0;
+
 }
