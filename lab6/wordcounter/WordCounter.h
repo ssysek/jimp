@@ -2,6 +2,10 @@
 // Created by Jan on 16.04.2018.
 //
 
+//
+// Created by Jan on 16.04.2018.
+//
+
 #ifndef JIMP_EXERCISES_WORDCOUNTER_H
 #define JIMP_EXERCISES_WORDCOUNTER_H
 
@@ -29,20 +33,23 @@ namespace datastructures {
 
 
     class WordCounter {
+
     public:
+
         WordCounter();
         WordCounter(initializer_list<Word> words);
         ~WordCounter() {};
 
-        int operator[](string wanted);
+        int operator[](string szukany);
         int DistinctWords();
         int TotalWords();
         set<Word> Words();
 
     private:
-        list<pair<Word, Counts>> mylist;
-        int distinct;
-        int total;
+
+        list<pair<Word, Counts>> talista;
+        int unikat;
+        int suma;
 
     };
 

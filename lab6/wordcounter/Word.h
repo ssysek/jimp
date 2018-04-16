@@ -13,7 +13,9 @@ namespace datastructures {
 
 
     class Word {
+
     public:
+
         friend class WordCounter;
 
         Word(){};
@@ -22,13 +24,14 @@ namespace datastructures {
 
         ~Word() {};
 
-        bool operator<(Word ignas) const ;
+        bool operator==(Word zlicz) const ;
+        bool operator>(Word zlicz) const ;
+        bool operator<(Word zlicz) const ;
 
-        bool operator>(Word ignas) const ;
-
-        bool operator==(Word ignas) const ;
     private:
-        string searched_word;
+
+        string szukane;
+
     };
 
 }
