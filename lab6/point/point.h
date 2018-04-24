@@ -25,4 +25,5 @@ private:
 //operator >> dla strumienia wejściowego
 //i klasy punkt
 std::istream& operator>>(std::istream &is, Point& point);
+
 #endif
