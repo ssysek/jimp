@@ -36,4 +36,3 @@ namespace datastructures {
 
 }
 #endif //JIMP_EXERCISES_WORD_H
-

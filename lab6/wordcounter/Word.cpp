@@ -28,4 +28,3 @@ bool Word::operator<(Word zlicz) const {
     return (szukane<zlicz.szukane);
 
 }
-

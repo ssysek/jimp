@@ -35,6 +35,3 @@ bool Counts::operator<(Counts zlicz) const {
     return (licznik<zlicz.licznik);
 
 }
-
-
-
