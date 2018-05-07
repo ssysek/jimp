@@ -232,7 +232,7 @@ int moviesubs::SubtitleEndBeforeStart::LineAt() const {
 
 string moviesubs::SubtitleEndBeforeStart::what() const {
 
-    return "Linijka: " + to_string(numer_linii) + ": " + linijka;
+    return "At line " + to_string(numer_linii) + ": " + linijka;
 
 }
 
