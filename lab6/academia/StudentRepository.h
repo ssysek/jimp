@@ -8,6 +8,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <regex>
 
 namespace academia{
 
@@ -33,8 +34,14 @@ namespace academia{
     class Student{
     public:
         Student();
-        Student(std::string id_, std::string Name_, std::string Surname_, std::string program_, int year_);
+        Student(std::string id_, std::string Name_, std::string Surname_, std::string program_, int year_, std::string course_);
         ~Student();
+        bool CheckName(std::string Name_,std::string Surname_);
+        bool CheckYear(int year_);
+        bool CheckCourse(std::string course_);
+        void InvalidNameCharacters(bool namebool);
+        void InvalidAge(bool agebool);
+        void InvalidProgram(bool coursebool);
 
 
     };
