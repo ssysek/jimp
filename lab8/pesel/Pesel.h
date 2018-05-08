@@ -12,7 +12,7 @@ namespace academia{
 class Pesel {
 public:
     Pesel(std::string pesel_);
-    ~Pesel() {};
+    ~Pesel() {}
     void CheckPesel(std::string pesel);
     std::string NrPesel;
 };

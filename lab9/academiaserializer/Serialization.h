@@ -5,6 +5,10 @@
 #ifndef JIMP_EXERCISES_SERIALIZATION_H
 #define JIMP_EXERCISES_SERIALIZATION_H
 
+#include <string>
+#include <sstream>
+#include <vector>
+
 
 namespace academia{
 
@@ -16,11 +20,14 @@ namespace academia{
     };
 
     class Room:Serializable{
+    public:
         enum class Type {
             COMPUTER_LAB,
             LECTURE_HALL,
             CLASSROOM
         };
+        Room() { };
+        Room(int id, std::string name, Type type);
     };
 }
 
