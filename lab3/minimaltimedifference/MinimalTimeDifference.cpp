@@ -28,6 +28,8 @@ unsigned int ToMinutes(std::string time_HH_MM){
         string min=time_HH_MM.substr(2,2);
         int m= atoi(min.c_str());
         minuty=g*60+m;
+
+
     }
     return minuty;
 
@@ -36,6 +38,22 @@ unsigned int MinimalTimeDifference(std::vector<std::string> times){
     unsigned int min=1440;
     vector<unsigned int> minutes;
 
+    int ga=ToMinutes(times[0]);
+    int gb=ToMinutes(times[1]);
+    if(ga==0){
+        ga=1440;
+    }
+    if(gb==0){
+        gb=1440;
+    }
+
+    if(ga>gb){
+        return ga-gb;
+    }
+    else{
+        return gb-ga;
+    }
+    /*
     for (auto time:times){
         unsigned int tmp = ToMinutes(time);
         minutes.emplace_back(tmp);
@@ -54,5 +72,6 @@ unsigned int MinimalTimeDifference(std::vector<std::string> times){
         if (diff < min){
             min = diff;}
     }
-    return min;
+    */
+    //return min;
 }
