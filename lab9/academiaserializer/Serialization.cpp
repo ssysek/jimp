@@ -76,8 +76,8 @@ namespace academia {
     void XmlSerializer::ArrayField(const std::string &field_name,
                                    const std::vector<std::reference_wrapper<const academia::Serializable>> &value) {
         *out_ << "<" << field_name << ">";
-        for (const auto &n:value)
-            n.get().Serialize(this);
+        for (const auto &v:value)
+            v.get().Serialize(this);
         *out_ << "<\\" << field_name << ">";
     }
 
@@ -125,13 +125,13 @@ namespace academia {
         else
             *out_ << ", ";
         *out_ << "\"" << field_name << "\": [";
-        int i = 0;
+        int a = 0;
         for (const auto &n:value) {
             needOpen = false;
             n.get().Serialize(this);
-            i++;
+            a++;
 
-            if (i < value.size()) {
+            if (a < value.size()) {
                 *out_ << ", ";
             }
         }
@@ -154,16 +154,16 @@ namespace academia {
 
     void BuildingRepository::StoreAll(Serializer *serial) const {
         serial->Header("buildings_repository");
-        std::vector<std::reference_wrapper<const Serializable>> wrapped;
+        std::vector<std::reference_wrapper<const Serializable>> wrap;
         for (auto building: buildings_)
-            wrapped.emplace_back(building);
-        serial->ArrayField("buildings", wrapped);
+            wrap.emplace_back(building);
+        serial->ArrayField("buildings", wrap);
         serial->Footer("buildings_repository");
     }
 
     std::experimental::optional<Building> BuildingRepository::operator[](int id) const{
-        for(auto building: buildings_){
-            if(building.Id()==id) return std::experimental::make_optional(building);
+        for(auto build: buildings_){
+            if(build.Id()==id) return std::experimental::make_optional(build);
         }
     };
 
