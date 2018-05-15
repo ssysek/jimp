@@ -32,10 +32,9 @@ void SortBySecondInPlace(std::vector<std::pair<int,int>> *v){
 
 void SortByThirdInPlace(std::vector<std::tuple<int,int,int>> *v){
 
-    std::vector<std::pair<int,int>> vc;
+    std::vector<std::tuple<int,int,int>> vc;
     std::copy(v->begin(),v->end(),vc.begin());
     std::sort(v->begin(), v->end(), [](auto &left, auto &right){
-        return left.third < right.third;
+        return std::get<2>(left) < std::get<2>(right);
     });
-
 }
