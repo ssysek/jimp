@@ -13,9 +13,7 @@
 class Algo {
 public:
     void SortInPlace(std::vector<int> *v);
-
     void SortByFirstInPlace(std::vector<std::pair<int, int>> *v);
-
     int Sum(const std::vector<int> &v);
     int Product(const std::vector<int> &v);
     int HowManyShortStrings(const std::vector<std::string> &v, int inclusive_short_length);
