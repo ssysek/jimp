@@ -34,8 +34,11 @@ script:
   - make lab12_time_recorder_tests
   - tests/lab12test/lab12_time_recorder_tests
   - make lab12_tree_preorder_tests
+  - tests/lab12test/lab12_tree_preorder_tests
   - make lab12_tree_inorder_tests
+  - tests/lab12test/lab12_tree_inorder_tests
   - make lab12_tree_postorder_tests
+  - tests/lab12test/lab12_tree_postorder_tests
   
 
 
