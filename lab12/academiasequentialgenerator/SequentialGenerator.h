@@ -20,7 +20,7 @@ public:
     TYP_ID NextValue(){
 
         if(!head){
-            licznik++;
+            ++licznik;
         }
         head= false;
         return TYP_ID (licznik);
