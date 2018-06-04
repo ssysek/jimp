@@ -1,8 +1,8 @@
 
 project(academiateacherhash)
 
-set(HEDEAR_FILES AcademiaTeacherHash.h)
-set(SOURCE_FILES AcademiaTeacherHash.cpp)
+set(HEDEAR_FILES TeacherHash.h)
+set(SOURCE_FILES TeacherHash.cpp)
 
 add_library(libacademiateacherhash STATIC ${SOURCE_FILES})
 target_include_directories(libacademiateacherhash PUBLIC .)

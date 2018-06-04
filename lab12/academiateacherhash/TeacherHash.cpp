@@ -2,7 +2,7 @@
 // Created by Jan on 04.06.2018.
 //
 
-#include "AcademiaTeacherHash.h"
+#include "TeacherHash.h"
 
 //int Teacher::Id(){
 //    return id.tid;
