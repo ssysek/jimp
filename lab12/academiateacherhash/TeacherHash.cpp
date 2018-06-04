@@ -17,7 +17,7 @@
 //
 //}
 
-size_t TeacherHash::operator()() const{
+size_t academia::TeacherHash::operator()() const{
     size_t hash_name=std::hash<std::string>{}(teacher.name);
     size_t hash_dept=std::hash<std::string>{}(teacher.department);
     size_t hash_id=std::hash<int>{}(teacher.id.tid);
