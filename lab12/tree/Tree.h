@@ -5,7 +5,6 @@
 #ifndef JIMP_EXERCISES_TREE_H
 #define JIMP_EXERCISES_TREE_H
 #include <cstddef>
-
 #include <sstream>
 #include <vector>
 #include <memory>
