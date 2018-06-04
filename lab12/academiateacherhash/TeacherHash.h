@@ -8,78 +8,67 @@
 #include <string>
 #include <functional>
 
-namespace academia {
+#include <string>
 
+using std::string;
+
+namespace academia {
     class TeacherId {
     public:
-        TeacherId();
+        TeacherId(const int &id) { id_ = id; }
 
-        TeacherId(int id_) {
-            tid = id_;
-        };
+        TeacherId(const TeacherId &teacher) { id_ = teacher.id_; }
 
-        ~TeacherId();
+        operator int() const { return id_; };
 
-        int Id();
+        bool operator!=(const TeacherId &teacher) const { return teacher.id_ != id_; };
 
-        int tid;
-
-
+    private:
+        int id_;
     };
 
     class Teacher {
     public:
+        Teacher(const TeacherId &id, const string &name, const string &department) : id_(id), name_(name),
+                                                                                     department_(department) {}
 
-        Teacher();
-
-        Teacher(TeacherId id_, std::string name_, std::string department_) {
-            id = id_;
-            name = name_;
-            department = department_;
-        };
-
-        ~Teacher();
-
-        int Id() {};
-
-        std::string Name() {};
-
-        std::string Department();
-
-        TeacherId id;
-        std::string name;
-        std::string department;
-
-        bool operator==(Teacher other) const {
-            return (id.tid == other.id.tid && name == other.name && department == other.department);
+        bool operator==(const Teacher &teacher) const {
+            return (id_ == teacher.id_
+                    && name_ == teacher.name_
+                    && department_ == teacher.department_);
         }
 
-        bool operator!=(Teacher other) const {
-            return (id.tid != other.id.tid || name != other.name || department != other.department);
-        }
+        bool operator!=(const Teacher &teacher) const { return !(*this == teacher); }
 
+        const int Id() const { return id_; }
+
+        const string Name() const { return name_; }
+
+        const string Department() const { return department_; }
+
+    private:
+        TeacherId id_;
+        string name_;
+        string department_;
     };
 
     class TeacherHash {
     public:
+        size_t operator()(const Teacher &teacher) const {
+            size_t name = 0, department = 0;
+            for (auto &character : teacher.Name()) name += character;
 
-        TeacherHash();
+            for (auto &character :teacher.Department()) department += character;
 
-        TeacherHash(Teacher teacher_) {
-            teacher_.id.tid = teacher.id.tid;
-            teacher_.name = teacher.name;
-            teacher_.department = teacher.department;
-        };
+            std::size_t h1 = std::hash<std::string>{}(teacher.Name());
+            std::size_t h2 = std::hash<std::string>{}(teacher.Department());
+            std::size_t h3 = std::hash<int>{}(teacher.Id());
 
-        ~TeacherHash();
+            return h1 ^ h2 ^ h3;
 
-        size_t operator()() const{};
-        size_t operator()(const academia::Teacher &teacher) const{};
-        Teacher teacher;
-
+        }
     };
 
 }
-
 
 #endif //JIMP_EXERCISES_ACADEMIATEACHERHASH_H
