@@ -10,12 +10,18 @@
 #include <iostream>
 #include <utility>
 
+namespace profiling {
 
+    template<class T>
+    auto TimeRecorder(T obj){
+        auto start = std::chrono::high_resolution_clock::now();
+        auto wart = (obj)();
+        auto stop = std::chrono::high_resolution_clock::now();
+        double czas = std::chrono::duration<double, std::milli>(stop-start).count();
+        return std::make_pair(wart, czas);
+    };
 
-template <class T>
-auto TimeRecorder(T obj);
-
-
+}
 
 
 
