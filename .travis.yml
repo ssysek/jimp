@@ -23,6 +23,10 @@ install:
 
 script:
   - echo `which $CXX`
+  - mkdir build && cd build;
+    cmake -DCMAKE_CXX_COMPILER=$CXX ..
+  - make example_examplelibrary_tests
+  - tests/exampletest/example_examplelibrary_tests
   - make lab12_sequential_generator_tests
   - make lab12_teacher_hash_tests
   - make lab12_time_recorder_tests
