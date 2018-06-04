@@ -28,8 +28,11 @@ script:
   - make example_examplelibrary_tests
   - tests/exampletest/example_examplelibrary_tests
   - make lab12_sequential_generator_tests
+  - tests/lab12test/lab12_sequential_generator_tests
   - make lab12_teacher_hash_tests
+  - tests/lab12test/lab12_teacher_hash_tests
   - make lab12_time_recorder_tests
+  - tests/lab12test/lab12_time_recorder_tests
   - make lab12_tree_preorder_tests
   - make lab12_tree_inorder_tests
   - make lab12_tree_postorder_tests
