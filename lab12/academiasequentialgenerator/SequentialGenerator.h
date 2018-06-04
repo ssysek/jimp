@@ -8,10 +8,24 @@
 template <class TYP_ID, class TYP_PROSTY>
 class SequentialIdGenerator {
 public:
-    SequentialIdGenerator();
-    SequentialIdGenerator(TYP_PROSTY licznik_);
+    SequentialIdGenerator() {
+        head = true;
+        licznik = 0;
+    }
+    SequentialIdGenerator(TYP_PROSTY licznik_){
+        head=true;
+        licznik=licznik_;
+    };
     ~SequentialIdGenerator();
-    TYP_ID NextValue();
+    TYP_ID NextValue(){
+
+        if(!head){
+            licznik++;
+        }
+        head= false;
+        return TYP_ID (licznik);
+
+    };
 
 private:
     bool head;
