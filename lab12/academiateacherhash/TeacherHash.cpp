@@ -3,7 +3,7 @@
 //
 
 #include "TeacherHash.h"
-
+using namespace std;
 //int Teacher::Id(){
 //    return id.tid;
 //}
@@ -16,10 +16,16 @@
 //    return department;
 //
 //}
+size_t academia::TeacherHash::operator()(const academia::Teacher &teacher) const {
+    size_t h_n = std::hash<string>{}(teacher.name);
+    size_t h_d = std::hash<string>{}(teacher.department);
+    size_t h_id = std::hash<int>{}(teacher.id.tid);
+    return h_d + h_id + h_n;
+}
 
-//size_t academia::TeacherHash::operator()() const{
-//    size_t hash_name=std::hash<std::string>{}(teacher.name);
-//    size_t hash_dept=std::hash<std::string>{}(teacher.department);
-//    size_t hash_id=std::hash<int>{}(teacher.id.tid);
-//    return hash_name+hash_dept+hash_id;
-//};
+size_t academia::TeacherHash::operator()() const {
+    size_t h_n = std::hash<string>{}(teacher.name);
+    size_t h_d = std::hash<string>{}(teacher.department);
+    size_t h_id = std::hash<int>{}(teacher.id.tid);
+    return h_d + h_n + h_id;
+}
