@@ -7,7 +7,9 @@
 
 #include <string>
 
-std::string ArabicToRoman(int arabic);
+std::string ArabicToRoman(int tmp);
+
+int value(char r);
 
 int RomanToArabic(std::string roman);
 
