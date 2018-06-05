@@ -2,7 +2,7 @@
 // Created by mwypych on 01.06.17.
 //
 
-//1 do 4999
+//1 do 3999
 
 
 #include <gtest/gtest.h>
