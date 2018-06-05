@@ -9,6 +9,8 @@
 
 std::string ArabicToRoman(int tmp);
 
+int value(char r);
+
 int RomanToArabic(std::string roman);
 
 
