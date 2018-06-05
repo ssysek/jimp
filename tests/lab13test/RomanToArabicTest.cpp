@@ -23,8 +23,8 @@ TEST(roman_to_arabic, RomanXXXIsArabic30){
 
 }
 
-TEST(roman_to_arabic, RomanMCMXLVIIIsArabic2018){
+TEST(roman_to_arabic, RomanMMXVIIIIsArabic2018){
 
-    EXPECT_EQ(2018, RomanToArabic("MCMXLVII"));
+    EXPECT_EQ(2018, RomanToArabic("MMXVIII"));
 
 }
