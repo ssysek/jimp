@@ -6,58 +6,60 @@
 
 std::string ArabicToRoman(int arabic){
     std::string w="";
-    while(arabic>=1000){
-        arabic-=1000;
+    int tmp=arabic;
+    while(tmp>=1000){
+        tmp-=1000;
         w+="M";
     }
-    while(arabic>=900){
-        arabic-=900;
+    while(tmp>=900){
+        tmp-=900;
         w+="CM";
     }
-    while(arabic>=500){
-        arabic-=500;
+    while(tmp>=500){
+        tmp-=500;
         w+="D";
     }
-    while(arabic>=400){
-        arabic-=400;
+    while(tmp>=400){
+        tmp-=400;
         w+="CD";
     }
-    while(arabic>=100){
-        arabic-=100;
+    while(tmp>=100){
+        tmp-=100;
         w+="C";
     }
-    while(arabic>=90){
-        arabic-=90;
+    while(tmp>=90){
+        tmp-=90;
         w+="XC";
     }
-    while(arabic>=50){
-        arabic-=50;
+    while(tmp>=50){
+        tmp-=50;
         w+="L";
     }
-    while(arabic>=40){
-        arabic-=40;
+    while(tmp>=40){
+        tmp-=40;
         w+="XL";
     }
-    while(arabic>=10){
-        arabic-=10;
+    while(tmp>=10){
+        tmp-=10;
         w+="X";
     }
-    while(arabic>=9){
-        arabic-=9;
+    while(tmp>=9){
+        tmp-=9;
         w+="IX";
     }
-    while(arabic>=5){
-        arabic-=5;
+    while(tmp>=5){
+        tmp-=5;
         w+="V";
     }
-    while(arabic>=4){
-        arabic-=4;
+    while(tmp>=4){
+        tmp-=4;
         w+="IV";
     }
-    while(arabic>=1){
-        arabic-=1;
+    while(tmp>=1){
+        tmp-=1;
         w+="I";
     }
+    return w;
 }
 
 int RomanToArabic(std::string roman){
