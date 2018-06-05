@@ -16,7 +16,7 @@ public:
         head=true;
         licznik=licznik_;
     };
-    ~SequentialIdGenerator();
+    ~SequentialIdGenerator() = default;
     TYP_ID NextValue(){
 
         if(!head){
