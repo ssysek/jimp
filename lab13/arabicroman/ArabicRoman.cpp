@@ -59,3 +59,9 @@ std::string ArabicToRoman(int arabic){
         w+="I";
     }
 }
+
+int RomanToArabic(std::string roman){
+
+    return 1;
+
+}

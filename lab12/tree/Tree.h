@@ -74,23 +74,45 @@ namespace tree {
         if (val < value) {
             if (left != nullptr) left->Insert(val);
             else {
-                std::unique_ptr <Tree<T>> new_node = std::make_unique<Tree<T>>();
-                new_node->value = val;
-                new_node->left = nullptr;
-                new_node->right = nullptr;
-                this->left = std::move(new_node);
+                std::unique_ptr <Tree<T>> new_node = std::make_unique<Tree<T>>(val);
+//                new_node->value = val;
+//                new_node->left = nullptr;
+//                new_node->right = nullptr;
+//                this->left = std::move(new_node);
             }
         } else {
             if (right != nullptr) right->Insert(val);
             else {
-                std::unique_ptr <Tree<T>> new_node = std::make_unique<Tree<T>>();
-                new_node->value = val;
-                new_node->left = nullptr;
-                new_node->right = nullptr;
-                this->right = std::move(new_node);
+                std::unique_ptr <Tree<T>> new_node = std::make_unique<Tree<T>>(val);
+//                new_node->value = val;
+//                new_node->left = nullptr;
+//                new_node->right = nullptr;
+//                this->right = std::move(new_node);
             }
         }
         size++;
+    }
+    template<class T>
+    bool Tree<T>::Find(T val) {
+        if(val==value){
+            return true;
+        }
+        else if(val<value){
+            if (left == nullptr){
+                return false;
+            }
+            else{
+                return left->Find(val);
+            }
+        }
+        else{
+            if (right == nullptr){
+                return false;
+            }
+            else{
+                return right->Find(val);
+            }
+        }
     }
 
     template<class T>

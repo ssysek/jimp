@@ -8,13 +8,8 @@
 #include <string>
 
 std::string ArabicToRoman(int arabic);
-//
-//int RomanToArabic(std::string roman){
-//
-//
-//
-//
-//}
+
+int RomanToArabic(std::string roman);
 
 
 
